@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/Px437_IBM_ISO9.ttf</file>
+    </qresource>
+</RCC>
