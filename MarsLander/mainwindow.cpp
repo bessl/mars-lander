@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QPolygon>
+#include "game.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
