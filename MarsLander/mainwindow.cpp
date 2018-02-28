@@ -4,7 +4,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QPolygon>
-#include "game.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -42,9 +41,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setFixedSize(800, 600);
     ui->graphicsView->show();
+
+    game = new Game();
+    updateDisplay();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::updateDisplay()
+{
+    ui->label_input_fuel->setText(QString::number(game->spaceship->fuel()));
+    ui->label_input_alt->setText(QString::number(game->spaceship->altitude()));
+    ui->label_input_x ->setText(QString::number(game->spaceship->x()));
+    ui->label_input_y->setText(QString::number(game->spaceship->y()));
 }

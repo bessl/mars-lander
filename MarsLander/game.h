@@ -11,6 +11,7 @@ public:
     explicit Game(QObject *parent = nullptr);
 
     Spaceship * spaceship;
+    void updateDisplay();
 
 signals:
 
