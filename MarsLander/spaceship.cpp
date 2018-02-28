@@ -1,7 +1,11 @@
 #include "spaceship.h"
+#include <QDebug>
 
-Spaceship::Spaceship(QObject *parent) : QObject(parent)
+Spaceship::Spaceship(): QObject(), QGraphicsRectItem()
 {
+    setPos(400, 40);
+    setRect(0, 0, 10, 30);
+
     m_fuel = 99;
     m_altitude = 100;
     m_x = 200;

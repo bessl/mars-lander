@@ -2,12 +2,12 @@
 #define SPACESHIP_H
 
 #include <QObject>
+#include <QGraphicsRectItem>
 
-class Spaceship : public QObject
-{
+class Spaceship: public QObject,public QGraphicsRectItem{
     Q_OBJECT
 public:
-    explicit Spaceship(QObject *parent = nullptr);
+    Spaceship();
 
     int fuel() const;
     void setFuel(int fuel);

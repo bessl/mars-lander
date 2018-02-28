@@ -44,6 +44,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     game = new Game();
     updateDisplay();
+    game->spaceship->setPen(QColor(255, 255, 255));
+    scene->addItem(game->spaceship);
 }
 
 MainWindow::~MainWindow()
