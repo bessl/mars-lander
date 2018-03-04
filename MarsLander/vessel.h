@@ -16,6 +16,7 @@ private:
 
 signals:
     void updateDisplayAltitude(int value);
+    void gameOver();
 
 public slots:
     void move();

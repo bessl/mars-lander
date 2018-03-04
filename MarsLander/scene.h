@@ -25,9 +25,11 @@ private:
     QGraphicsTextItem *displayAltitudeValue;
 
 signals:
+    void playThrusterSound();
 
 public slots:
     void updateDisplayAltitude(int value);
+    void gameOver();
 };
 
 #endif // SCENE_H

@@ -9,6 +9,6 @@ int main(int argc, char *argv[])
     Scene scene;
     Audio audio;
 
-    //QObject::connect(&w, SIGNAL(playThruster()), &audio, SLOT(playThruster()));
+    QObject::connect(&scene, SIGNAL(playThrusterSound()), &audio, SLOT(playThruster()));
     return app.exec();
 }

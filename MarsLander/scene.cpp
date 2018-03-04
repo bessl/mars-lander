@@ -41,6 +41,7 @@ Scene::Scene()
     addItem(vessel);
 
     QObject::connect(vessel, SIGNAL(updateDisplayAltitude(int)), this, SLOT(updateDisplayAltitude(int)));
+    QObject::connect(vessel, SIGNAL(gameOver()), this, SLOT(gameOver()));
 }
 
 
@@ -57,18 +58,27 @@ void Scene::updateDisplayAltitude(int value)
     displayAltitudeValue->setPlainText(QString::number(value));
 }
 
+void Scene::gameOver()
+{
+    // TODO: Game over screen.
+    qDebug() << "game over";
+}
+
 void Scene::keyPressEvent(QKeyEvent *event){
-    qDebug() << "keypressed";
-//    if (event->key() == Qt::Key_Left || event->key() == 65){
-//        qDebug() << "left";
-//    }
-//    else if (event->key() == Qt::Key_Right || event->key() == 68){
-//        qDebug() << "right";
-//    }
-//    else if (event->key() == Qt::Key_Up || event->key() == 87){
-//        qDebug() << "up";
-//    }
-//    else if (event->key() == Qt::Key_Down || event->key() == 83){
-//        qDebug() << "down";;
-    //    }
+    if (event->key() == Qt::Key_Left || event->key() == 65){
+        qDebug() << "left";
+        emit playThrusterSound();
+    }
+    else if (event->key() == Qt::Key_Right || event->key() == 68){
+        qDebug() << "right";
+        emit playThrusterSound();
+    }
+    else if (event->key() == Qt::Key_Up || event->key() == 87){
+        qDebug() << "up";
+        emit playThrusterSound();
+    }
+    else if (event->key() == Qt::Key_Down || event->key() == 83){
+        qDebug() << "down";
+        emit playThrusterSound();
+    }
 }
