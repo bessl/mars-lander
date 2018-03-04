@@ -37,7 +37,8 @@ Scene::Scene()
 
     displaySetup();
 
-    Vessel vessel;
+    vessel = new Vessel;
+    addItem(vessel);
 }
 
 

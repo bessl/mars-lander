@@ -17,6 +17,7 @@ public:
     void displaySetup();
 
 private:
+    Vessel *vessel;
     QGraphicsView *view;
     QGraphicsTextItem *displayFuel;
     QGraphicsTextItem *displayFuelValue;
