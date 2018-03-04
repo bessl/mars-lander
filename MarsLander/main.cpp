@@ -10,6 +10,5 @@ int main(int argc, char *argv[])
     Audio audio;
 
     //QObject::connect(&w, SIGNAL(playThruster()), &audio, SLOT(playThruster()));
-
     return app.exec();
 }

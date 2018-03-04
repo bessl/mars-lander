@@ -39,6 +39,8 @@ Scene::Scene()
 
     vessel = new Vessel;
     addItem(vessel);
+
+    QObject::connect(vessel, SIGNAL(updateDisplayAltitude(int)), this, SLOT(updateDisplayAltitude(int)));
 }
 
 
@@ -47,6 +49,12 @@ void Scene::displaySetup() {
     displayFuelValue->setPlainText("100");
     displayAltitude->setPlainText("Altitude ");
     displayAltitudeValue->setPlainText("23");
+}
+
+
+void Scene::updateDisplayAltitude(int value)
+{
+    displayAltitudeValue->setPlainText(QString::number(value));
 }
 
 void Scene::keyPressEvent(QKeyEvent *event){

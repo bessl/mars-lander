@@ -27,6 +27,7 @@ private:
 signals:
 
 public slots:
+    void updateDisplayAltitude(int value);
 };
 
 #endif // SCENE_H

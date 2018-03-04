@@ -12,10 +12,13 @@ public:
 
 private:
     int my_fuel;
+    int my_altitude;
 
 signals:
+    void updateDisplayAltitude(int value);
 
 public slots:
+    void move();
 };
 
 #endif // VESSEL_H
