@@ -40,6 +40,10 @@ Scene::Scene()
     vessel = new Vessel;
     addItem(vessel);
 
+    audio = new Audio;
+
+    QObject::connect(this, SIGNAL(playThrusterSound()), audio, SLOT(playThruster()));
+    QObject::connect(this, SIGNAL(moveVesselUp(int)), vessel, SLOT(moveUp(int)));
     QObject::connect(vessel, SIGNAL(updateDisplayAltitude(int)), this, SLOT(updateDisplayAltitude(int)));
     QObject::connect(vessel, SIGNAL(gameOver()), this, SLOT(gameOver()));
 }
@@ -67,18 +71,15 @@ void Scene::gameOver()
 void Scene::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left || event->key() == 65){
         qDebug() << "left";
-        emit playThrusterSound();
+        //emit playThrusterSound();
     }
     else if (event->key() == Qt::Key_Right || event->key() == 68){
         qDebug() << "right";
-        emit playThrusterSound();
+        //emit playThrusterSound();
     }
     else if (event->key() == Qt::Key_Up || event->key() == 87){
         qDebug() << "up";
-        emit playThrusterSound();
-    }
-    else if (event->key() == Qt::Key_Down || event->key() == 83){
-        qDebug() << "down";
-        emit playThrusterSound();
+        emit moveVesselUp(10);
+        //emit playThrusterSound();
     }
 }

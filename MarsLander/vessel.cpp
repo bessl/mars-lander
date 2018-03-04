@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QTimer>
 
-Vessel::Vessel(QObject *parent) : QObject(parent), my_fuel {100}, my_altitude {100}
+Vessel::Vessel(QObject *parent) : QObject(parent), my_fuel {100}, my_altitude {100}, my_y_speed {1}
 {
     setPos(400, 40);
     setRect(0, 0, 10, 30);
@@ -23,5 +23,11 @@ void Vessel::move() {
     }
     emit updateDisplayAltitude(fake_altitude);
 
-    setPos(x(), y() + 1);
+    setPos(x(), y() + my_y_speed);
+}
+
+void Vessel::moveUp(int speed)
+{
+    //my_y_speed += speed;
+    setPos(x(), y() - 20);
 }
