@@ -14,11 +14,14 @@ class Scene : public QGraphicsScene
 public:
     Scene();
     void keyPressEvent(QKeyEvent * event);
-    Vessel vessel;
+    void displaySetup();
 
 private:
     QGraphicsView *view;
     QGraphicsTextItem *displayFuel;
+    QGraphicsTextItem *displayFuelValue;
+    QGraphicsTextItem *displayAltitude;
+    QGraphicsTextItem *displayAltitudeValue;
 
 signals:
 

@@ -7,7 +7,7 @@ Scene::Scene()
 {
     setBackgroundBrush(Qt::black);
     setSceneRect(0, 0, 800, 600);
-    QGraphicsView *view = new QGraphicsView(this); // FIXME: add this in header
+    view = new QGraphicsView(this);
     view->setWindowTitle("Mars Lander");
     view->setScene(this);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -16,14 +16,37 @@ Scene::Scene()
     view->show();
 
     displayFuel = new QGraphicsTextItem;
-    displayFuel->setPos(10,10);
-    displayFuel->setPlainText("Fuel 100");
+    displayFuel->setPos(10, 10);
     displayFuel->setDefaultTextColor(QColor(255, 255, 255));
     addItem(displayFuel);
 
-  //  Vessel vessel;
+    displayFuelValue = new QGraphicsTextItem;
+    displayFuelValue->setPos(70, 10);
+    displayFuelValue->setDefaultTextColor(QColor(255, 255, 255));
+    addItem(displayFuelValue);
+
+    displayAltitude = new QGraphicsTextItem;
+    displayAltitude->setPos(10, 30);
+    displayAltitude->setDefaultTextColor(QColor(255, 255, 255));
+    addItem(displayAltitude);
+
+    displayAltitudeValue = new QGraphicsTextItem;
+    displayAltitudeValue->setPos(70, 30);
+    displayAltitudeValue->setDefaultTextColor(QColor(255, 255, 255));
+    addItem(displayAltitudeValue);
+
+    displaySetup();
+
+    Vessel vessel;
 }
 
+
+void Scene::displaySetup() {
+    displayFuel->setPlainText("Fuel ");
+    displayFuelValue->setPlainText("100");
+    displayAltitude->setPlainText("Altitude ");
+    displayAltitudeValue->setPlainText("23");
+}
 
 void Scene::keyPressEvent(QKeyEvent *event){
     qDebug() << "keypressed";
@@ -38,5 +61,5 @@ void Scene::keyPressEvent(QKeyEvent *event){
 //    }
 //    else if (event->key() == Qt::Key_Down || event->key() == 83){
 //        qDebug() << "down";;
-//    }
+    //    }
 }
