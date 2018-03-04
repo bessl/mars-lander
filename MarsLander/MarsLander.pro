@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,15 +27,19 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     game.cpp \
-    spaceship.cpp
+    spaceship.cpp \
+    audio.cpp
 
 HEADERS += \
         mainwindow.h \
     game.h \
-    spaceship.h
+    spaceship.h \
+    audio.h
 
 FORMS += \
         mainwindow.ui
 
 RESOURCES += \
     resource.qrc
+
+DISTFILES +=

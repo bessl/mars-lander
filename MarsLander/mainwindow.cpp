@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QPolygon>
+#include "audio.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -46,6 +47,10 @@ MainWindow::MainWindow(QWidget *parent) :
     updateDisplay();
     game->spaceship->setPen(QColor(255, 255, 255));
     scene->addItem(game->spaceship);
+
+    audio = new Audio();
+
+    QObject::connect(this, SIGNAL(playThruster()), &audio, SLOT(playThruster()));
 }
 
 MainWindow::~MainWindow()
@@ -59,4 +64,10 @@ void MainWindow::updateDisplay()
     ui->label_input_alt->setText(QString::number(game->spaceship->altitude()));
     ui->label_input_x ->setText(QString::number(game->spaceship->x()));
     ui->label_input_y->setText(QString::number(game->spaceship->y()));
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    // test wav sound
+    playThruster();
 }
