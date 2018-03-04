@@ -27,16 +27,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     game.cpp \
-    spaceship.cpp \
     audio.cpp \
-    scene.cpp
+    scene.cpp \
+    vessel.cpp
 
 HEADERS += \
         mainwindow.h \
     game.h \
-    spaceship.h \
     audio.h \
-    scene.h
+    scene.h \
+    vessel.h
 
 FORMS += \
         mainwindow.ui

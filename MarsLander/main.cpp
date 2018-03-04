@@ -1,16 +1,15 @@
-#include "mainwindow.h"
-#include "audio.h"
 #include <QApplication>
+#include "audio.h"
+#include "scene.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();    
+    QApplication app(argc, argv);
 
+    Scene scene;
     Audio audio;
 
-    QObject::connect(&w, SIGNAL(playThruster()), &audio, SLOT(playThruster()));
+    //QObject::connect(&w, SIGNAL(playThruster()), &audio, SLOT(playThruster()));
 
-    return a.exec();
+    return app.exec();
 }
