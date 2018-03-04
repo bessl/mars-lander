@@ -10,3 +10,4 @@ void Audio::playThruster()
 {
     QSound::play(":/res/thruster.wav");
 }
+
