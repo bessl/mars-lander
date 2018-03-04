@@ -48,9 +48,6 @@ MainWindow::MainWindow(QWidget *parent) :
     game->spaceship->setPen(QColor(255, 255, 255));
     scene->addItem(game->spaceship);
 
-    audio = new Audio();
-
-    QObject::connect(this, SIGNAL(playThruster()), &audio, SLOT(playThruster()));
 }
 
 MainWindow::~MainWindow()
