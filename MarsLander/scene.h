@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QKeyEvent>
+#include "vessel.h"
 
 class Scene : public QGraphicsScene
 {
@@ -13,6 +14,7 @@ class Scene : public QGraphicsScene
 public:
     Scene();
     void keyPressEvent(QKeyEvent * event);
+    Vessel vessel;
 
 private:
     QGraphicsView *view;

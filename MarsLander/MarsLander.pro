@@ -25,21 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    game.cpp \
     audio.cpp \
     scene.cpp \
     vessel.cpp
 
 HEADERS += \
-        mainwindow.h \
-    game.h \
     audio.h \
     scene.h \
     vessel.h
-
-FORMS += \
-        mainwindow.ui
 
 RESOURCES += \
     resource.qrc

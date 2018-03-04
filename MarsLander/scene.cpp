@@ -9,6 +9,11 @@ Scene::Scene()
     setSceneRect(0, 0, 800, 600);
     QGraphicsView *view = new QGraphicsView(this); // FIXME: add this in header
     view->setWindowTitle("Mars Lander");
+    view->setScene(this);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setFixedSize(800, 600);
+    view->show();
 
     displayFuel = new QGraphicsTextItem;
     displayFuel->setPos(10,10);
@@ -16,11 +21,7 @@ Scene::Scene()
     displayFuel->setDefaultTextColor(QColor(255, 255, 255));
     addItem(displayFuel);
 
-    view->setScene(this);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setFixedSize(800, 600);
-    view->show();
+  //  Vessel vessel;
 }
 
 
