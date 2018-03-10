@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
     audio.cpp \
     scene.cpp \
-    vessel.cpp
+    vessel.cpp \
+    game.cpp
 
 HEADERS += \
     audio.h \
     scene.h \
-    vessel.h
+    vessel.h \
+    game.h
 
 RESOURCES += \
     resource.qrc

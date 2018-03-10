@@ -2,6 +2,8 @@
 #include <QGraphicsTextItem>
 #include <QKeyEvent>
 #include <QDebug>
+#include <iostream>
+#include "game.h"
 
 Scene::Scene()
 {
@@ -36,6 +38,7 @@ Scene::Scene()
     addItem(displayAltitudeValue);
 
     displaySetup();
+    generateWorld();
 
     vessel = new Vessel;
     addItem(vessel);
@@ -54,6 +57,14 @@ void Scene::displaySetup() {
     displayFuelValue->setPlainText("100");
     displayAltitude->setPlainText("Altitude ");
     displayAltitudeValue->setPlainText("23");
+}
+
+void Scene::generateWorld()
+{
+    double rad = 1;
+    for (int i=0; i<=Game::randInt(50, 300); i++) {
+        this->addEllipse(Game::randInt(10, 790)-rad, Game::randInt(10, 300)-rad, rad*2.0, rad*2.0, QPen(), QBrush(Qt::white));
+    }
 }
 
 

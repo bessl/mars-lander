@@ -16,6 +16,7 @@ public:
     Scene();
     void keyPressEvent(QKeyEvent * event);
     void displaySetup();
+    void generateWorld();
 
 private:
     Vessel *vessel;
