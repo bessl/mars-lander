@@ -44,8 +44,9 @@ Scene::Scene()
     vessel = new Vessel;
     addItem(vessel);
 
-    QObject::connect(this, SIGNAL(moveVesselUp(int)), vessel, SLOT(moveUp(int)));
+    QObject::connect(this, SIGNAL(moveVesselUp()), vessel, SLOT(moveUp()));
     QObject::connect(vessel, SIGNAL(updateDisplayAltitude(int)), this, SLOT(updateDisplayAltitude(int)));
+    QObject::connect(vessel, SIGNAL(updateDisplayFuel(int)), this, SLOT(updateDisplayFuel(int)));
     QObject::connect(vessel, SIGNAL(gameOver()), this, SLOT(gameOver()));
 }
 
@@ -71,6 +72,11 @@ void Scene::updateDisplayAltitude(int value)
     displayAltitudeValue->setPlainText(QString::number(value));
 }
 
+void Scene::updateDisplayFuel(int value)
+{
+    displayFuelValue->setPlainText(QString::number(value));
+}
+
 void Scene::gameOver()
 {
     // TODO: Game over screen.
@@ -88,7 +94,7 @@ void Scene::keyPressEvent(QKeyEvent *event){
     }
     else if (event->key() == Qt::Key_Up || event->key() == 87){
         qDebug() << "up";
-        emit moveVesselUp(10);
+        emit moveVesselUp();
         Audio::playThruster();
     }
 }

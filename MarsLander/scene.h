@@ -26,10 +26,11 @@ private:
     QGraphicsTextItem *displayAltitudeValue;
 
 signals:
-    void moveVesselUp(int speed);
+    void moveVesselUp();
 
 public slots:
     void updateDisplayAltitude(int value);
+    void updateDisplayFuel(int value);
     void gameOver();
 };
 
