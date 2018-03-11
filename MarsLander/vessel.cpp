@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QTimer>
 
-Vessel::Vessel(QObject *parent) : QObject(parent), my_fuel {100}, my_altitude {100}, my_y_speed {1}, my_thruster_up {0}
+Vessel::Vessel(QObject *parent) : QObject(parent), my_fuel {100}, my_altitude {100}, my_y_speed {1}
 {
     setPos(400, 40);
     setRect(0, 0, 10, 30);
@@ -11,19 +11,18 @@ Vessel::Vessel(QObject *parent) : QObject(parent), my_fuel {100}, my_altitude {1
 
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(24);
+    timer->start(50);
 
 }
 
-void Vessel::move() {
-    if (my_thruster_up > 0) {
-        setPos(x(), y() - 10);
-        my_thruster_up--;
-        return;
-    }
+int Vessel::get_fuel()
+{
+    return my_fuel;
+}
 
+void Vessel::move() {
     int fake_altitude = 560 - y();
-    if (fake_altitude <= 0) {
+    if (fake_altitude < 1) {
         gameOver();
         return;
     }
@@ -35,6 +34,6 @@ void Vessel::move() {
 
 void Vessel::moveUp()
 {
-    my_thruster_up = 2;
+    setPos(x(), y() - 15);
     my_fuel -= thrust_boost_qty;
 }

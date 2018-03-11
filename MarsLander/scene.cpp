@@ -85,16 +85,21 @@ void Scene::gameOver()
 
 void Scene::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left || event->key() == 65){
-        qDebug() << "left";
-        //Audio::playThruster();
+        if (vessel->get_fuel() > 0) {
+            qDebug() << "left";
+            //Audio::playThruster();
+        }
     }
     else if (event->key() == Qt::Key_Right || event->key() == 68){
-        qDebug() << "right";
-        //Audio::playThruster();
+        if (vessel->get_fuel() > 0) {
+            qDebug() << "right";
+            //Audio::playThruster();
+        }
     }
     else if (event->key() == Qt::Key_Up || event->key() == 87){
-        qDebug() << "up";
-        emit moveVesselUp();
-        Audio::playThruster();
+        if (vessel->get_fuel() > 0) {
+            emit moveVesselUp();
+            Audio::playThruster();
+        }
     }
 }

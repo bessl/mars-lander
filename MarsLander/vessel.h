@@ -9,13 +9,13 @@ class Vessel : public QObject, public QGraphicsRectItem
     Q_OBJECT
 public:
     explicit Vessel(QObject *parent = nullptr);
+    int get_fuel();
 
 private:
     int my_fuel;
     int my_altitude;
     int my_y_speed;
-    int my_thruster_up;
-    unsigned const int thrust_boost_qty = 3;
+    unsigned const int thrust_boost_qty = 4;
 
 signals:
     void updateDisplayAltitude(int value);
