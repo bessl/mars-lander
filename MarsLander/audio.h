@@ -12,7 +12,8 @@ public:
 signals:
 
 public slots:
-    void playThruster();
+    static void playThruster();
+    static void playExplosion();
 };
 
 #endif // AUDIO_H

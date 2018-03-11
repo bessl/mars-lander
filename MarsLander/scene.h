@@ -7,7 +7,6 @@
 #include <QGraphicsView>
 #include <QKeyEvent>
 #include "vessel.h"
-#include "audio.h"
 
 class Scene : public QGraphicsScene
 {
@@ -20,7 +19,6 @@ public:
 
 private:
     Vessel *vessel;
-    Audio *audio;
     QGraphicsView *view;
     QGraphicsTextItem *displayFuel;
     QGraphicsTextItem *displayFuelValue;
@@ -28,7 +26,6 @@ private:
     QGraphicsTextItem *displayAltitudeValue;
 
 signals:
-    void playThrusterSound();
     void moveVesselUp(int speed);
 
 public slots:

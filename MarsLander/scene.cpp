@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <iostream>
 #include "game.h"
+#include "audio.h"
 
 Scene::Scene()
 {
@@ -43,9 +44,6 @@ Scene::Scene()
     vessel = new Vessel;
     addItem(vessel);
 
-    audio = new Audio;
-
-    QObject::connect(this, SIGNAL(playThrusterSound()), audio, SLOT(playThruster()));
     QObject::connect(this, SIGNAL(moveVesselUp(int)), vessel, SLOT(moveUp(int)));
     QObject::connect(vessel, SIGNAL(updateDisplayAltitude(int)), this, SLOT(updateDisplayAltitude(int)));
     QObject::connect(vessel, SIGNAL(gameOver()), this, SLOT(gameOver()));
@@ -62,7 +60,7 @@ void Scene::displaySetup() {
 void Scene::generateWorld()
 {
     double rad = 1;
-    for (int i=0; i<=Game::randInt(50, 300); i++) {
+    for (unsigned int i=0; i<=Game::randInt(50, 300); i++) {
         this->addEllipse(Game::randInt(10, 790)-rad, Game::randInt(10, 300)-rad, rad*2.0, rad*2.0, QPen(), QBrush(Qt::white));
     }
 }
@@ -82,15 +80,15 @@ void Scene::gameOver()
 void Scene::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left || event->key() == 65){
         qDebug() << "left";
-        //emit playThrusterSound();
+        //Audio::playThruster();
     }
     else if (event->key() == Qt::Key_Right || event->key() == 68){
         qDebug() << "right";
-        //emit playThrusterSound();
+        //Audio::playThruster();
     }
     else if (event->key() == Qt::Key_Up || event->key() == 87){
         qDebug() << "up";
         emit moveVesselUp(10);
-        //emit playThrusterSound();
+        Audio::playThruster();
     }
 }

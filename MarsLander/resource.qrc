@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>res/Px437_IBM_ISO9.ttf</file>
         <file>res/thruster.wav</file>
+        <file>res/explosion.wav</file>
     </qresource>
 </RCC>

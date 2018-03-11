@@ -11,3 +11,8 @@ void Audio::playThruster()
     QSound::play(":/res/thruster.wav");
 }
 
+void Audio::playExplosion()
+{
+    QSound::play(":/res/explosion.wav");
+}
+
